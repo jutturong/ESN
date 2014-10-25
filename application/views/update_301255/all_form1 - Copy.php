@@ -1,0 +1,324 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title><?=$title?></title>
+
+
+
+
+<script type="text/javascript">
+	$(function() {
+		$("#tabs-monitoring").tabs();
+	});
+	
+	
+	 $('#HN_ep').click(function()
+				{
+											$(this).val('');
+											$('#frequency').val('');
+				}
+	);
+	
+	$('#call_ep').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------epilepsy clinic  tab1
+	      { 
+		         // alert('t');   
+				//$('#load_log_ep_value').load('<?=base_url()?>index.php/loadtable/load_epi');
+				
+//				$.post('<?=base_url()?>index.php/loadtable/load_epi',{HN:$('#HN_ep').val()  },function(data,success)
+//				{    
+//				        // $('#load_log_ep_value').load('<?=base_url()?>index.php/loadtable/load_epi  #log_ep');
+//				}
+//				);
+				
+				
+				//$("#load_log_ep_value").load('<?=base_url()?>index.php/loadtable/load_epi/'+  $('#HN_ep').val()  +'  #log_ep');
+				$("#load_log_ep_value").load('<?=base_url()?>index.php/loadtable/load_epi/'+  $('#HN_ep').val());
+		       	//	$("#load_ep_value").load('<?=base_url()?>index.php/epi/query_ep',{  'HN':$("#HN_ep").val() }); //อันเดิมที่จะโหลดไปหน้า tab EP
+				    return false; 
+		   }
+	);
+	
+	
+		$('#call_eeg').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------EEG  tab2
+	      { 
+		         //alert('t');   
+				
+				//load_log_eeg_value
+				//load_eeg
+				//$("#load_log_eeg_value").load('<?=base_url()?>index.php/loadtable/load_epi/'+  $('#HN_ep').val());
+					$("#load_log_eeg_value").load('<?=base_url()?>index.php/loadtable/load_eeg/'+  $('#HN_ep').val());
+				    return false; 
+		   }
+	);
+
+
+
+		$('#call_image').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------Imaging  tab3
+	      { 
+		         //alert('t');   
+				$("#load_image_value").load('<?=base_url()?>index.php/epi/query_imaging',{  'HN':$("#HN_ep").val() });
+				    return false; 
+		   }
+	);
+
+
+		$('#call_general').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------Imaging  tab3
+	      { 
+		         //alert('t');   
+				$("#load_general_value").load('<?=base_url()?>index.php/epi/query_general',{  'HN':$("#HN_ep").val() });
+				    return false; 
+		   }
+	);
+	
+	
+			$('#call_blood').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------Imaging  tab3
+	      { 
+		         //alert('t');   
+				$("#load_blood_value").load('<?=base_url()?>index.php/epi/query_blood',{  'HN':$("#HN_ep").val() });
+				    return false; 
+		   }
+	);
+	
+
+				$('#call_chem1').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------Imaging  tab3
+	      { 
+		         //alert('t');   
+				$("#load_chem1_value").load('<?=base_url()?>index.php/epi/query_chem1',{  'HN':$("#HN_ep").val() });
+				    return false; 
+		   }
+	);
+
+
+				$('#call_chem2').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------Imaging  tab3
+	      { 
+		         //alert('t');   
+				$("#load_chem2_value").load('<?=base_url()?>index.php/epi/query_chem2',{  'HN':$("#HN_ep").val() });
+				    return false; 
+		   }
+	);
+	
+	
+	
+	$('#drug_button').button(  { text:true,icons:{ primary:'ui-icon-arrowrefresh-1-w' } } ).click(function()  //-------------------Imaging  tab3
+	      { 
+		         //alert('t');   
+				$("#drug_span").load('<?=base_url()?>index.php/epi/drug_load',{  'HN':$("#HN_ep").val() });
+				    return false; 
+		   }
+	);
+
+
+</script>
+    
+<script type="text/javascript">
+
+//=============================== autocomplete ==Epilepsy clinic=========================================
+//			function fill_ep(thisValue,frequency) 
+//			{
+//					$('#HN_ep').val(thisValue);
+//					//$('#frequency').val(frequency);
+//				    setTimeout("$('#suggestions_ep').hide();", 200);
+//			}	
+			
+		function fill_ep(thisValue) 
+			{
+					$('#HN_ep').val(thisValue);
+					//$('#frequency').val(frequency);
+				    setTimeout("$('#suggestions_ep').hide();", 200);
+			}		
+	
+	
+ function lookup_ep(inputString)
+	{ 
+				if( $('#HN_ep').val().length == 0 )
+				{
+				   $('#suggestions_ep').hide();
+				}
+						else{
+												$.ajax({
+													type:'POST'
+												  // ,url:'<?=base_url()?>index.php/project/autocomplete'
+												  // ,url:'<?=base_url()?>index.php/home/autocomplete_HN'
+												   //,url:'<?=base_url()?>index.php/home/app_autocomplete_HN'
+													,url:'<?=base_url()?>index.php/epi/auto_epi'
+												   ,data:'HN=' + $('#HN_ep').val()
+												   ,success:function(data){
+														$('#suggestions_ep').show();
+														$('#autoSuggestionsList_ep').html(data); 
+												   }
+												}
+												);
+									}
+	}					  		
+//=============================== autocomplete ==Epilepsy clinic=========================================
+
+
+</script>    
+
+</head>
+
+<body>
+
+
+<?
+echo form_fieldset(' ระบบค้นผู้ป่วย ');
+?>
+
+<table>
+                        <tr>
+                        <td width="410" > <?=nbs(3)?>  HN  : 
+                          <input name="HN_ep" type="text" onblur="fill_ep();" onkeyup="lookup_ep(this.value);"    id="HN_ep" size="20" maxlength="6" class="search" />  
+                        </td>
+  </tr>
+<tr>
+                        <td>
+<!--============================= autocomplete-->              
+<div class="suggestionsBox" id="suggestions_ep" style="display: none; margin-left:400px;" align="left" >
+				 <img src="<?=base_url()?>images/upArrow.png" style="position: relative; top: -12px; left: 30px;" alt="upArrow" />
+				<div class="suggestionList" id="autoSuggestionsList_ep">
+                </div>
+ </div>
+<!--============================= autocomplete-->
+                        </td>
+                        </tr>
+                        
+                        
+</table>
+
+<?
+echo form_fieldset_close(); 
+?>
+
+<div id="tabs-monitoring">
+                                                                    <ul>
+                                                                        <li><a href="#Epilepsy_Clinic">Epilepsy Clinic</a></li>
+                                                                        <li><a href="#EEG">EEG</a></li>
+                                                                         <li><a href="#Imaging">Imaging</a></li>
+                                                                         <li><a href="#General">General</a></li>
+                                                                         <li><a href="#Blood">Blood</a></li>
+                                                                        <li><a href="#chem1">Chem.1</a></li>
+                                                                        <li><a href="#chem2">Chem.2</a></li>
+                                                                        <li><a href="#drug_div">Drug level</a></li>
+                                                                    </ul>
+                                                                    
+<div id="Epilepsy_Clinic">
+<table width="842">
+                         <tr>
+                         <td><button id="call_ep">Load Epilesy Clinic</button></td>
+                         </tr>               
+                        
+                        <tr>
+                        <td>
+                           <span id="load_log_ep_value"></span>
+                          <span id="load_ep_value"></span>
+                        </td>
+                        .</tr>
+ </table>
+</div>
+                               
+                                <div id="EEG">
+                                
+<table width="842">
+                         <tr>
+                         <td><button id="call_eeg">Load EEG</button></td>
+                         </tr>               
+                        
+                        <tr>
+                        <td>
+                         <span id="load_log_eeg_value"></span> 
+                          <span id="load_eeg_value"></span>
+                        </td>
+                        .</tr>
+ </table>
+                             
+                                </div>
+                                
+                                
+                                
+                                 <div id="Imaging">
+
+<table width="842">
+                         <tr>
+                         <td><button id="call_image">Load Imaging</button></td>
+                         </tr>               
+                        
+                        <tr>
+                        <td>
+                          <span id="load_image_value"></span>
+                        </td>
+                        .</tr>
+ </table>
+
+                                </div>
+                                
+                                <div id="General">
+<table width="842">
+                         <tr>
+                         <td><button id="call_general">Load General</button></td>
+                         </tr>               
+                        
+                        <tr>
+                        <td>
+                          <span id="load_general_value"></span>
+                        </td>
+                        .</tr>
+ </table>
+
+                                </div>
+                               
+                               <div id="Blood">
+<table width="842">
+                         <tr>
+                         <td><button id="call_blood">Load Blood</button></td>
+                         </tr>               
+                        
+                        <tr>
+                        <td>
+                          <span id="load_blood_value"></span>
+                        </td>
+                        .</tr>
+ </table>
+                                </div>
+                                
+                                <div id="chem1">
+<table width="842">
+                         <tr>
+                         <td><button id="call_chem1">Load Chem1</button></td>
+                         </tr>               
+                        
+                        <tr>
+                        <td>
+                          <span id="load_chem1_value"></span>
+                        </td>
+                        .</tr>
+ </table>
+                                </div>
+                                <div id="chem2">
+                                
+<table width="842">
+                         <tr>
+                         <td><button id="call_chem2">Load Chem2</button></td>
+                         </tr>               
+                        
+                        <tr>
+                        <td>
+                          <span id="load_chem2_value"></span>
+                        </td>
+                        .</tr>
+ </table>
+
+                                </div>
+                              
+                               <div id="drug_div">
+                               <button id="drug_button">Load Drug level</button>
+                               <span id="drug_span"></span>
+                               </div>  
+                                
+                                
+                                
+</div>
+
+
+</body>
+</html>

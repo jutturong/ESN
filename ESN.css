@@ -1,0 +1,176 @@
+@charset "utf-8";
+/* CSS Document */
+
+.fontMenu {
+	font-family: "Microsoft Sans Serif";
+	font-size: 12px;
+	font-weight: normal;
+	color: #000000;
+}
+.bgCl1 {
+	background-color: #99CCFF;
+	color: #FFFFFF;
+}
+.tb1 {
+	border-top-width: 1px;
+	border-right-width: 5px;
+	border-bottom-width: 5px;
+	border-left-width: 1px;
+	border-top-style: outset;
+	border-right-style: outset;
+	border-bottom-style: outset;
+	border-left-style: outset;
+	border-top-color: #CCCCCC;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #CCCCCC;
+	color: #000000;
+	background-color: #FFFFFF;
+}
+.hilight1 {
+	background-color: #FFCCCC;
+	color: #000000;
+}
+.hilight2 {
+	background-color:#FFFF00;
+	color: #000000;
+}
+.tb2 {
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+	background-color: #FFFFFF;
+}
+.tb3 {
+	background-color: #FFFFFF;
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #000000;
+	border-right-color: #000000;
+	border-bottom-color: #000000;
+	border-left-color: #000000;
+}
+
+
+
+/* 
+ *	These styles are needed for the styling of the demo page.
+ *	You only need the colortip-1.0-jquery.css stylesheet to display
+ *	the colorful tooltips on your site.
+ */
+
+*{
+	margin:0;
+	padding:0;
+}
+
+body{
+	font-size:13px;
+	color:#777;
+	background-color:#f6f8f9;
+	font-family:Arial, Helvetica, sans-serif;
+	text-shadow:1px 1px 0 white;
+}
+
+h1{
+	color:#6f9e1d;
+	font-size:40px;
+}
+
+h2{
+	font-size:22px;
+	font-style:italic;
+	font-weight:normal;
+	color:#515151;
+}
+
+h1,h2{
+	font-family:'Myriad Pro',Arial, Helvetica, sans-serif;
+	margin:30px 0;
+}
+
+p{
+	padding-bottom:15px;
+	line-height:1.5;
+	text-align:justify;
+}
+/*page*/
+#p13{
+	/* This the main container div */
+	width:900px;
+	margin:0 auto;
+	position:relative;
+	padding-top:1px;
+}
+
+h2.backToTz{
+	position:absolute;
+	right:0;
+	top:52px;
+	white-space:nowrap;
+}
+
+a, a:visited {
+	text-decoration:none;
+	outline:none;
+	color:#159ce9;
+}
+
+a:hover{	text-decoration:underline;}
+a img{	border:none;}.font18 {
+	font-family: "Microsoft Sans Serif";
+	font-size: 18px;
+}
+.font16 {
+	font-family: "Microsoft Sans Serif";
+	font-size: 16px;
+	font-weight: bolder;
+}
+.font24 {
+	font-family: "Microsoft Sans Serif";
+	font-size: 24px;
+	font-weight: bold;
+}
+.font12 {
+	font-family: "Microsoft Sans Serif";
+	font-size: 12px;
+	font-weight: bold;
+}
+.bgColor1 {
+	background-color: #999999;
+}
+.label1 {
+	font-family: "Microsoft sans Serif";
+	font-size: 10px;
+	font-weight: bolder;
+	text-align:left;
+}
+.bordertable1 {
+	border-top-width: 1px;
+	border-right-width: 1px;
+	border-bottom-width: 1px;
+	border-left-width: 1px;
+	border-top-style: solid;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #CCCCCC;
+	border-right-color: #CCCCCC;
+	border-bottom-color: #CCCCCC;
+	border-left-color: #CCCCCC;
+}
